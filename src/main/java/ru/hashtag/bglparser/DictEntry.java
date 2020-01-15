@@ -1,26 +1,24 @@
 package ru.hashtag.bglparser;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class DictEntry {
-	public String headWord;
-	public String definition;
-	public int wordClass;
-	public String displayWord;
-	public String phonetics;
-	public List<String> alternates = new ArrayList<>();
+	String headWord;
+	String definition;
+	int wordClass;
+	String displayWord;
+	String phonetics;
+	List<String> alternates = new ArrayList<>();
 	protected BglBlock block;
-	private Charset srcEncoding;
-	private Charset dstEncoding;
+	Charset srcEncoding;
+	Charset dstEncoding;
 
 	public DictEntry(BglBlock block, String srcEncoding, String dstEncoding) {
 		this(block, Charset.forName(srcEncoding), Charset.forName(dstEncoding));
